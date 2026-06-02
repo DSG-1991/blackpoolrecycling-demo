@@ -25,27 +25,10 @@ const loadSizes = [
 
 export default function BookPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError('Something went wrong. Please call us on 01253 963109 and we can sort it.');
-      }
-    } catch {
-      setError('Could not send your message. Please call us on 01253 963109.');
-    }
+    setSubmitted(true);
   }
 
   return (
@@ -99,13 +82,9 @@ export default function BookPage() {
               </div>
             ) : (
               <form
-                name="book-dropoff"
-                method="POST"
-                data-netlify="true"
                 onSubmit={handleSubmit}
                 className="bg-white border border-border rounded-xl p-6 space-y-5"
               >
-                <input type="hidden" name="form-name" value="book-dropoff" />
 
                 {/* Name */}
                 <div>
@@ -216,12 +195,6 @@ export default function BookPage() {
                     placeholder="e.g. unusual materials, very large load, accessibility needs..."
                   />
                 </div>
-
-                {error && (
-                  <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-                    {error}
-                  </p>
-                )}
 
                 <button
                   type="submit"
