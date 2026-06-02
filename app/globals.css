@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours — derived from logo pixel analysis */
+  --color-brand-orange: #F6A500;
+  --color-brand-orange-dark: #D48C00;
+  --color-brand-charcoal: #343434;
+
+  /* Surfaces */
+  --color-base: #F7F7F7;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #343434;
+  --color-surface-warm: #FFF8E8;
+
+  /* Text */
+  --color-text-primary: #1A1A1A;
+  --color-text-body: #444444;
+  --color-text-muted: #777777;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-grey-icon: #A1A1A1;
+
+  /* Borders */
+  --color-border: #E5E5E5;
+
+  /* Fonts */
+  --font-barlow: var(--font-barlow);
+}
+
+:root {
+  --background: #F7F7F7;
+  --foreground: #1A1A1A;
+}
+
+/* Disable dark-mode override so brand palette holds */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus ring uses brand orange */
+*:focus-visible {
+  outline: 2px solid #F6A500;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
