@@ -4,3 +4,5 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+    [plugins.inputs]
+    disable_forms = true
