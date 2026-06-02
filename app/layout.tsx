@@ -15,11 +15,11 @@ const barlow = Barlow({
 export const metadata: Metadata = {
   metadataBase: new URL('https://blackpoolrecycling.uk'),
   title: {
-    default: 'Recycling Centre Blackpool | Household & Garden Waste Drop-Off',
-    template: '%s | Blackpool Recycling Centre',
+    default: 'Rubbish Collection Blackpool | We Come to You | Job Logistics',
+    template: '%s | Job Logistics Blackpool',
   },
   description:
-    'Licensed recycling centre in Blackpool. Drop off household, garden & bulky waste. Weight-based pricing. Open Mon–Sat 9–4. Unit 1 Dickies Lane South FY4 5LG.',
+    'Rubbish removal and waste collection in Blackpool and the Fylde Coast. We come to your property, load everything and take it away. Call 01253 963109.',
   openGraph: {
     siteName: 'Job Logistics Recycling Centre',
     locale: 'en_GB',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
 
 const footerLinks = [
   { href: '/', label: 'Home' },
-  { href: '/what-we-accept', label: 'What We Accept' },
+  { href: '/what-we-collect', label: 'What We Collect' },
   { href: '/prices', label: 'Prices' },
-  { href: '/find-us', label: 'Find Us' },
-  { href: '/book', label: 'Book a Drop-Off' },
+  { href: '/find-us', label: 'Service Area' },
+  { href: '/book', label: 'Book a Collection' },
 ];
 
 export default function RootLayout({
@@ -56,9 +56,9 @@ export default function RootLayout({
                 <div className="flex items-start gap-2">
                   <MapPin size={16} className="text-brand-orange shrink-0 mt-0.5" />
                   <span>
-                    Unit 1, Dickies Lane South<br />
-                    Blackpool<br />
-                    FY4 5LG
+                    Covering Blackpool &amp; the Fylde Coast<br />
+                    Lytham · Bispham · Fleetwood · Thornton<br />
+                    Poulton · Kirkham and surrounding areas
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -70,8 +70,9 @@ export default function RootLayout({
                 <div className="flex items-start gap-2">
                   <Clock size={16} className="text-brand-orange shrink-0 mt-0.5" />
                   <span>
-                    Monday – Saturday: 9:00am – 4:00pm<br />
-                    Sunday: Closed
+                    Mon–Fri: 8:00am – 6:00pm<br />
+                    Saturday: 8:00am – 4:00pm<br />
+                    Sunday: By arrangement
                   </span>
                 </div>
               </address>
@@ -104,12 +105,12 @@ export default function RootLayout({
               </ul>
             </div>
 
-            {/* Trade callout */}
+            {/* Drop-off callout */}
             <div>
-              <h3 className="text-brand-orange font-bold text-lg mb-4">Builder or Contractor?</h3>
+              <h3 className="text-brand-orange font-bold text-lg mb-4">Want to drop it off yourself?</h3>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                Our sister service at Job Logistics handles all trade, commercial and landlord
-                waste — the loads the council tip turns away.
+                If you have a van or trailer and want to drive your waste directly to our facility,
+                use Job Logistics Ltd — drive in, get weighed, pay on the day.
               </p>
               <a
                 href="https://www.joblogisticsltd.co.uk"
@@ -117,7 +118,7 @@ export default function RootLayout({
                 rel="noopener noreferrer"
                 className="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors"
               >
-                Job Logistics Trade Site →
+                Job Logistics Drop-Off →
               </a>
             </div>
           </div>

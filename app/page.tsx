@@ -11,58 +11,59 @@ import {
   Mountain,
   Phone,
   Clock,
-  MapPin,
+  Calendar,
   ShieldCheck,
   ThumbsUp,
   ArrowRight,
   X,
   ChevronDown,
+  MapPin,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Recycling Centre Blackpool | Household & Garden Waste Drop-Off',
+  title: 'Rubbish Collection Blackpool | We Come to You | Job Logistics',
   description:
-    'Licensed recycling centre in Blackpool. Drop off household, garden & bulky waste. Weight-based pricing. Open Mon–Sat 9–4. Unit 1 Dickies Lane South FY4 5LG.',
+    'Rubbish removal and waste collection in Blackpool. We come to your property, load everything and take it away. No van needed. Call 01253 963109.',
 };
 
-const wasteTypes = [
+const collectTypes = [
   {
     icon: Truck,
     label: 'Household Waste',
-    desc: 'General household rubbish and mixed waste — clear it all in one visit.',
+    desc: 'General household rubbish cleared from inside your property — we do all the loading.',
   },
   {
     icon: Leaf,
     label: 'Garden & Green Waste',
-    desc: 'Grass cuttings, branches, soil, hedge trimmings — the lot.',
+    desc: 'Grass cuttings, branches, soil, hedge trimmings — collected from your garden directly.',
   },
   {
     icon: Sofa,
     label: 'Furniture & Bulky Items',
-    desc: 'Sofas, mattresses, white goods, large items the bin men won\'t touch.',
+    desc: 'Sofas, mattresses, white goods — we carry them out so you don\'t have to.',
   },
   {
     icon: Hammer,
     label: 'DIY & Renovation Waste',
-    desc: 'Plasterboard, timber, tiles, rubble from home improvement projects.',
+    desc: 'Timber, plasterboard, tiles, rubble from home projects — we clear it all in one go.',
   },
   {
     icon: MonitorSmartphone,
-    label: 'Electrical & Electronics',
-    desc: 'TVs, laptops, fridges, washing machines — responsibly recycled.',
+    label: 'Electrical & Appliances',
+    desc: 'TVs, washing machines, fridges — collected and responsibly recycled.',
   },
   {
     icon: Mountain,
-    label: 'Soil & Hardcore',
-    desc: 'Soil, bricks, concrete and stone — weighed and priced fairly.',
+    label: 'Full Property Clearances',
+    desc: 'Moving out, bereavement clearance, rental void — full or partial, we handle it.',
   },
 ];
 
 const intentCards = [
-  { label: 'Household clearance', sub: 'Decluttering, moving or general clear-out' },
-  { label: 'Garden waste', sub: 'Grass, branches, soil and green waste' },
-  { label: 'Bulky items', sub: 'Furniture, mattresses and white goods' },
-  { label: 'DIY & renovation', sub: 'Timber, plaster, tiles, rubble' },
+  { label: 'House clearance', sub: 'Partial or full property — we load and remove everything' },
+  { label: 'Garden waste', sub: 'Seasonal clearances, grass, branches, soil' },
+  { label: 'Furniture & bulky items', sub: 'Sofas, mattresses, white goods removed from inside' },
+  { label: 'DIY & renovation', sub: 'Timber, rubble, tiles — cleared after your project' },
 ];
 
 const reviews = [
@@ -70,90 +71,81 @@ const reviews = [
     name: 'Paul T.',
     location: 'Blackpool',
     date: 'March 2026',
-    text: 'Brilliant service. Drove in with a full van, was weighed in and out in under 20 minutes. No fuss, no booking, fair price. Will be back.',
+    text: 'Brilliant service. Called at 9am, they were with me by midday. Cleared a full garage in under an hour. No fuss, fair price. Will definitely use again.',
   },
   {
     name: 'Sarah M.',
     location: 'Lytham St Annes',
     date: 'January 2026',
-    text: 'Cleared out my late mum\'s house and these lads were great. Took absolutely everything, friendly staff. Would recommend to anyone in the area.',
+    text: 'Used them to clear my late mum\'s house. The team were respectful and worked quickly. Took everything away in one visit. Would highly recommend.',
   },
   {
     name: 'Dave H.',
     location: 'Bispham',
     date: 'February 2026',
-    text: 'Way better than messing around at the council tip. These take everything, pricing is dead straightforward. Saved me two trips.',
+    text: 'Way easier than hiring a skip. They came next day, loaded everything themselves, gone in 45 minutes. Straightforward pricing too.',
   },
 ];
 
 const faqs = [
   {
-    q: 'Do I need to book in advance?',
-    a: 'No booking is needed. Just drive in during opening hours — Monday to Saturday, 9am to 4pm. If you have a particularly large load, a quick call beforehand is helpful but not required.',
+    q: 'Do I need to put the waste outside first?',
+    a: 'No — our team can collect from inside your property, from the garden, from a garage or loft. There\'s no need to move anything yourself before we arrive. Just show us what needs to go.',
   },
   {
-    q: 'What waste can\'t you accept?',
-    a: 'We cannot accept hazardous liquids (oils, solvents, paints in bulk), asbestos, or clinical waste. For trade and commercial volumes, please use our sister site at Job Logistics Ltd. Everything else — just ask when you arrive.',
+    q: 'How quickly can you come?',
+    a: 'We offer same-day and next-day collection for most jobs in Blackpool and the Fylde Coast. For larger clearances we may schedule for the following day. Call us on 01253 963109 for availability.',
   },
   {
-    q: 'How does the pricing work?',
-    a: 'All waste is weighed on arrival. You pay based on the weight and type of material. Pricing is clearly listed on our Prices page. No hidden charges, no surprises — the final figure is agreed before you leave.',
+    q: 'How is the price worked out?',
+    a: 'Our collection pricing is based on how long the job takes and how much of our vehicle space your waste fills. We give you a firm price before we start — no surprises at the end. See our Prices page for guide rates.',
   },
   {
-    q: 'Can I bring trade or commercial waste?',
-    a: 'This recycling centre is set up for domestic and small-volume DIY waste. For builders, contractors, landlords and commercial customers, our partner site Job Logistics Ltd handles trade volumes — visit joblogisticsltd.co.uk for details.',
+    q: 'Can you take everything in one visit?',
+    a: 'For most household clearances, yes. We bring a large vehicle and an experienced team. If a job is exceptionally large we\'ll tell you upfront. We aim to complete every job in a single visit.',
   },
   {
-    q: 'What are your opening hours?',
-    a: 'We are open Monday to Saturday, 9:00am to 4:00pm. We are closed on Sundays and Bank Holidays. Call ahead on 01253 963109 if you\'re unsure.',
+    q: 'Do I need to be home while you work?',
+    a: 'You or another adult should be present when we arrive and when we finish so we can confirm what\'s been taken and take payment. For most jobs the team can work while you get on with other things.',
   },
 ];
 
-const councilCannotTake = [
-  'Commercial & trade waste',
-  'Landlord clearance waste',
-  'Large builders rubble loads',
-  'Residents from outside Blackpool',
-  'Loads without prior permit',
-  'Tyres and vehicle parts',
+const skipProblems = [
+  'You still have to load it yourself',
+  'Permit required on most roads (£50–£100)',
+  'Sits outside for days or weeks',
+  'Can\'t take certain waste types',
+  'Charged even if you don\'t fill it',
+  'Extra charge if collected late',
 ];
 
-const weAccept = [
-  'All Blackpool & Fylde residents',
-  'Household & garden clearances',
-  'DIY and renovation waste',
-  'Furniture and white goods',
-  'Soil, hardcore and rubble',
-  'Electronics and appliances',
+const ourAdvantages = [
+  'We do all the loading — you do nothing',
+  'No permit needed — no council paperwork',
+  'In and out in one visit, waste gone the same day',
+  'All waste types accepted',
+  'You only pay for what we take',
+  'Fixed price agreed before we start',
 ];
 
-// JSON-LD schema
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'RecyclingCenter',
-  name: 'Job Logistics Recycling Centre',
+  '@type': 'LocalBusiness',
+  name: 'Job Logistics Waste Collection',
   url: 'https://blackpoolrecycling.uk',
   telephone: '+441253963109',
+  description: 'Rubbish removal and waste collection service covering Blackpool and the Fylde Coast.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Unit 1, Dickies Lane South',
     addressLocality: 'Blackpool',
-    postalCode: 'FY4 5LG',
+    addressRegion: 'Lancashire',
     addressCountry: 'GB',
   },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 53.7808,
-    longitude: -3.0209,
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude: 53.8142, longitude: -3.0503 },
+    geoRadius: '15000',
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '09:00',
-      closes: '16:00',
-    },
-  ],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',
@@ -174,7 +166,6 @@ const faqSchema = {
 export default function HomePage() {
   return (
     <>
-      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -184,9 +175,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── 1. HERO ── Steps 1-3: Recognition → Pain → Desire (PAS) */}
+      {/* ── 1. HERO — Recognition → Pain → Desire */}
       <section className="bg-brand-charcoal relative overflow-hidden">
-        {/* Subtle diagonal texture */}
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -197,43 +187,42 @@ export default function HomePage() {
         />
         <div className="relative max-w-6xl mx-auto px-4 py-20 lg:py-28">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-5">
-            Licensed Recycling Centre · Blackpool FY4 5LG
+            Waste collection · Blackpool &amp; Fylde Coast
           </p>
           <h1 className="text-white text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.05] tracking-tight mb-5 max-w-3xl">
-            Got waste to shift in Blackpool?
+            Got a pile of waste you need gone — without the skip, the permit or the van?
           </h1>
           <p className="text-zinc-300 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
-            The council tip won&apos;t take your builders rubble, your landlord clearance, or a full
-            van of garden waste. <strong className="text-white">We will.</strong> Drive in, get
-            weighed, pay and go.
+            We come to your property, carry everything out ourselves, and take it away in one visit.
+            <strong className="text-white"> No van. No heavy lifting. No rubbish sat on your drive for two weeks.</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="/what-we-accept"
+              href="/book"
               className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-7 py-4 rounded-lg transition-colors text-base"
             >
-              See what we accept <ArrowRight size={18} />
+              Book a collection <ArrowRight size={18} />
             </Link>
-            <Link
-              href="/find-us"
+            <a
+              href="tel:01253963109"
               className="inline-flex items-center justify-center gap-2 border border-white/25 hover:bg-white/10 text-white font-semibold px-7 py-4 rounded-lg transition-colors text-base"
             >
-              <MapPin size={16} /> Find us &amp; opening hours
-            </Link>
+              <Phone size={16} /> Call 01253 963109
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ── 2. TRUST BAR ── Step 4: Trust */}
+      {/* ── 2. TRUST BAR */}
       <section className="bg-white border-b border-border">
         <div className="max-w-6xl mx-auto px-4 py-5">
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
             {[
               { icon: Star, label: '381 Google reviews' },
               { icon: ShieldCheck, label: 'Licensed waste carrier' },
-              { icon: Clock, label: 'Open Mon–Sat, 9am–4pm' },
+              { icon: Calendar, label: 'Same-day & next-day available' },
               { icon: ThumbsUp, label: '100% recommend on Facebook' },
-              { icon: CheckCircle, label: 'Digital waste tracking' },
+              { icon: CheckCircle, label: 'All waste responsibly recycled' },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2 text-sm font-semibold text-text-body">
                 <Icon size={16} className="text-brand-orange" />
@@ -244,20 +233,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 3. INTENT ROUTING ── Step 1 reinforcement: Recognition */}
+      {/* ── 3. INTENT ROUTING */}
       <section className="bg-base py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-2 text-center">
-            What are you dropping off today?
+            What needs clearing?
           </h2>
           <p className="text-text-muted text-center mb-10">
-            Drive in during opening hours — no booking needed for any of these.
+            Point us to it — inside the house, in the garden, up in the loft. We handle the rest.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {intentCards.map(card => (
               <Link
                 key={card.label}
-                href="/what-we-accept"
+                href="/what-we-collect"
                 className="group bg-white border border-border rounded-xl p-5 hover:shadow-md hover:border-brand-orange transition-all"
               >
                 <div className="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center mb-3 group-hover:bg-brand-orange/20 transition-colors">
@@ -271,20 +260,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 4. WASTE TYPES ── Step 5: Belief */}
+      {/* ── 4. WHAT WE COLLECT */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">
-            What we accept
+            What we collect
           </p>
           <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">
-            Everything accepted at our Blackpool centre
+            Almost anything — from almost anywhere on your property
           </h2>
           <p className="text-text-muted text-center mb-10 max-w-xl mx-auto">
-            Weighed, receipted, and responsibly recycled. One centre — no running around.
+            Our team handles the carrying, the loading and the disposal. You just show us what needs to go.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {wasteTypes.map(({ icon: Icon, label, desc }) => (
+            {collectTypes.map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}
                 className="bg-base rounded-xl p-5 border border-border hover:border-brand-orange/40 transition-colors"
@@ -299,43 +288,43 @@ export default function HomePage() {
           </div>
           <div className="mt-8 text-center">
             <Link
-              href="/what-we-accept"
+              href="/what-we-collect"
               className="inline-flex items-center gap-2 text-brand-orange font-bold hover:underline"
             >
-              Full list of accepted waste <ArrowRight size={16} />
+              Full list of what we collect <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── 5. HOW IT WORKS ── Step 6: Safety */}
+      {/* ── 5. HOW IT WORKS */}
       <section className="bg-surface-warm py-16">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">
             How it works
           </p>
           <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">
-            No fuss. No booking needed.
+            Three steps. You do nothing after the call.
           </h2>
           <p className="text-text-muted text-center mb-12 max-w-lg mx-auto">
-            Three steps, in and out. The whole thing typically takes under 20 minutes.
+            Most jobs booked, collected and cleared within 24 hours. Same-day available.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 step: '01',
-                title: 'Drive in',
-                desc: 'Pull up at the entrance. No appointment, no wait. Our team will direct you to the right bay.',
+                title: 'Book or call',
+                desc: 'Tell us what you need collected and where. We give you a firm price and a time slot — same day or next day for most jobs.',
               },
               {
                 step: '02',
-                title: 'Get weighed',
-                desc: 'We weigh your vehicle in and out. You only pay for the actual weight of waste you leave behind.',
+                title: 'We arrive & load',
+                desc: 'Our team turns up on time, collects from wherever the waste is — inside, outside, garage, loft — and loads it all into our vehicle.',
               },
               {
                 step: '03',
-                title: 'Pay & go',
-                desc: 'Simple payment on the day — card or cash. You get a digital receipt. Job done.',
+                title: 'Waste gone, job done',
+                desc: 'We take everything away and dispose of it responsibly. You pay on completion — card or cash. No paperwork, no permit, no skip sat on your drive.',
               },
             ].map(({ step, title, desc }) => (
               <div key={step} className="relative">
@@ -350,27 +339,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 6. COUNCIL TIP COMPARISON ── Steps 5-6: Belief + Safety */}
+      {/* ── 6. VS SKIP HIRE */}
       <section className="bg-brand-charcoal py-16">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">
-            Why choose us
+            Why not a skip?
           </p>
           <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3 text-center">
-            We take what the council tip won&apos;t
+            A skip still makes you do the work. We don&apos;t.
           </h2>
           <p className="text-zinc-400 text-center mb-10 max-w-xl mx-auto">
-            Blackpool&apos;s council HWRC on Bristol Avenue can&apos;t accept a lot of what
-            households and DIYers actually need to shift.
+            You pay for a skip, fill it yourself, wait days for collection, and hope the council
+            doesn&apos;t fine you for the permit. Or call us and it&apos;s gone by tomorrow.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {/* Council tip */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-6">
               <p className="text-zinc-400 font-bold text-sm mb-4 uppercase tracking-wide">
-                Council tip — won&apos;t take
+                Skip hire — the problems
               </p>
               <ul className="space-y-2">
-                {councilCannotTake.map(item => (
+                {skipProblems.map(item => (
                   <li key={item} className="flex items-center gap-2 text-zinc-400 text-sm">
                     <X size={14} className="text-red-400 shrink-0" />
                     {item}
@@ -378,13 +366,12 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            {/* Us */}
             <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-xl p-6">
               <p className="text-brand-orange font-bold text-sm mb-4 uppercase tracking-wide">
-                Job Logistics Recycling — we accept
+                Job Logistics collection — the difference
               </p>
               <ul className="space-y-2">
-                {weAccept.map(item => (
+                {ourAdvantages.map(item => (
                   <li key={item} className="flex items-center gap-2 text-white text-sm">
                     <CheckCircle size={14} className="text-brand-orange shrink-0" />
                     {item}
@@ -396,7 +383,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7. REVIEWS ── Steps 4-5: Trust + Belief */}
+      {/* ── 7. REVIEWS */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">
@@ -410,10 +397,7 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {reviews.map(r => (
-              <div
-                key={r.name}
-                className="bg-base border border-border rounded-xl p-5"
-              >
+              <div key={r.name} className="bg-base border border-border rounded-xl p-5">
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} className="text-brand-orange fill-brand-orange" />
@@ -435,36 +419,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 8. PRICING TEASER ── Step 8: Logic */}
+      {/* ── 8. PRICING */}
       <section className="bg-base py-16">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">
             Pricing
           </p>
           <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">
-            Simple, transparent, weight-based
+            Priced by load — agreed before we start
           </h2>
           <p className="text-text-muted text-center mb-10 max-w-lg mx-auto">
-            No hidden charges. You pay for the exact weight of waste you leave. Prices confirmed
-            before you pay.
+            No hidden charges. No paying for space you don&apos;t use. We quote before we begin and
+            stick to it.
           </p>
           <div className="max-w-xl mx-auto bg-white border border-border rounded-xl overflow-hidden">
             <div className="bg-brand-charcoal px-5 py-3">
-              <p className="text-white font-bold text-sm">Load size guide (approximate)</p>
+              <p className="text-white font-bold text-sm">Guide prices — collection from your property</p>
             </div>
             <table className="w-full text-sm">
               <tbody>
                 {[
-                  ['Small car boot load', '~15 minutes', '£72'],
-                  ['Half-van / transit load', '~30 minutes', '£145'],
-                  ['Full-van load', '~45 minutes', '£220'],
-                  ['Full load (up to 60 min)', '~60 minutes', '£325'],
-                  ['Soil & hardcore (per tonne)', '—', 'From £120'],
-                  ['Plasterboard (specialist)', '—', '£295'],
-                ].map(([size, time, price], i) => (
+                  ['Small load', 'Car boot equivalent', '£72'],
+                  ['Medium load', 'Half-van equivalent', '£145'],
+                  ['Large load', 'Full-van equivalent', '£220'],
+                  ['Full clearance', 'Maximum load', '£325'],
+                ].map(([size, desc, price], i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-base'}>
-                    <td className="px-5 py-3 text-text-body">{size}</td>
-                    <td className="px-3 py-3 text-text-muted">{time}</td>
+                    <td className="px-5 py-3 font-semibold text-text-primary">{size}</td>
+                    <td className="px-3 py-3 text-text-muted">{desc}</td>
                     <td className="px-5 py-3 font-bold text-brand-charcoal text-right">{price}</td>
                   </tr>
                 ))}
@@ -475,17 +457,17 @@ export default function HomePage() {
                 href="/prices"
                 className="text-brand-orange font-bold text-sm hover:underline inline-flex items-center gap-1"
               >
-                Full pricing page <ArrowRight size={14} />
+                Full pricing details <ArrowRight size={14} />
               </Link>
             </div>
           </div>
           <p className="text-center mt-4 text-xs text-text-muted">
-            * Prices are a guide. Final cost is based on exact weight at the weighbridge.
+            * Guide prices. Final quote given before work begins — based on load size and access.
           </p>
         </div>
       </section>
 
-      {/* ── 9. FAQ ── Steps 6-8: Safety → Logic */}
+      {/* ── 9. FAQ */}
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-10 text-center">
@@ -493,10 +475,7 @@ export default function HomePage() {
           </h2>
           <div className="space-y-2">
             {faqs.map(faq => (
-              <details
-                key={faq.q}
-                className="group bg-base border border-border rounded-xl"
-              >
+              <details key={faq.q} className="group bg-base border border-border rounded-xl">
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-bold text-text-primary text-sm list-none">
                   {faq.q}
                   <ChevronDown
@@ -513,22 +492,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 10. FINAL CTA ── Step 9: Decision */}
+      {/* ── 10. DROPPING OFF YOURSELF? */}
+      <section className="bg-base py-10">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="bg-white border border-border rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 justify-between">
+            <div className="flex items-start gap-3">
+              <MapPin size={20} className="text-brand-orange shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-bold text-text-primary mb-1">
+                  Prefer to drop your waste off yourself?
+                </h3>
+                <p className="text-text-body text-sm">
+                  Our recycling centre at Job Logistics accepts household and commercial waste
+                  drop-offs — drive in, get weighed, pay and go.
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://www.joblogisticsltd.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-2 bg-brand-charcoal hover:bg-black text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm"
+            >
+              Job Logistics Drop-Off Site →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 11. FINAL CTA */}
       <section className="bg-brand-charcoal py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3">
-            Ready to drop off your waste?
+            Every day you wait, the pile doesn&apos;t shrink itself.
           </h2>
           <p className="text-zinc-400 mb-8 max-w-md mx-auto">
-            No booking needed. Just turn up Monday to Saturday, 9am–4pm. Or book ahead if you
-            prefer — either way, we&apos;ll sort it.
+            One call and it&apos;s sorted. Same-day and next-day collection across Blackpool and
+            the Fylde Coast — no van, no permit, no heavy lifting.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/book"
               className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-8 py-4 rounded-lg transition-colors text-base"
             >
-              Book a drop-off <ArrowRight size={18} />
+              Book a collection <ArrowRight size={18} />
             </Link>
             <a
               href="tel:01253963109"
@@ -538,7 +545,7 @@ export default function HomePage() {
             </a>
           </div>
           <p className="mt-6 text-xs text-zinc-500">
-            Unit 1, Dickies Lane South, Blackpool FY4 5LG · Mon–Sat 9am–4pm
+            Covering Blackpool · Lytham St Annes · Bispham · Fleetwood · Thornton · Poulton
           </p>
         </div>
       </section>

@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://blackpoolrecycling.uk';
-  const pages = ['', '/what-we-accept', '/prices', '/find-us', '/book'];
+  const pages = ['', '/what-we-collect', '/prices', '/find-us', '/book'];
 
   return pages.map(path => ({
     url: `${base}${path}`,

@@ -37,10 +37,10 @@ export default function BookPage() {
       <section className="bg-brand-charcoal py-14">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-3">
-            Book a drop-off
+            Book a collection
           </p>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold leading-tight mb-4">
-            Book a waste drop-off
+            Book a waste collection
           </h1>
           <p className="text-zinc-300 text-lg max-w-xl">
             Fill in the form below and we&apos;ll confirm your slot. Or just turn up — no booking
@@ -214,7 +214,7 @@ export default function BookPage() {
             <div className="bg-white border border-border rounded-xl p-5">
               <h2 className="font-bold text-text-primary mb-3">Or just turn up</h2>
               <p className="text-text-body text-sm leading-relaxed mb-4">
-                No booking is required. Drive in during opening hours and we&apos;ll sort you out
+                Tell us what you need cleared and where you are and we&apos;ll sort you out
                 on the day — no appointment, no wait.
               </p>
               <div className="space-y-2.5 text-sm">

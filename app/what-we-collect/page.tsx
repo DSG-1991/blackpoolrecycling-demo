@@ -9,28 +9,28 @@ import {
   Hammer,
   MonitorSmartphone,
   Mountain,
-  Flower2,
-  Package,
+  Home,
+  Building,
   ArrowRight,
   ExternalLink,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'What Waste We Accept | Blackpool Recycling Centre',
+  title: 'What We Collect | Rubbish Removal Blackpool | Job Logistics',
   description:
-    'Full list of waste we accept at our Blackpool recycling centre — household, garden, furniture, DIY, electronics, soil & hardcore. No booking needed.',
+    'Full list of waste we collect from Blackpool properties — household, garden, furniture, appliances, DIY waste and full clearances. We do all the loading.',
 };
 
-const accepted = [
+const collected = [
   {
     icon: Truck,
     label: 'Household Waste',
     items: [
       'General mixed household rubbish',
-      'Black bin bag waste',
+      'Black bin bag waste in bulk',
       'Kitchen and bathroom items',
-      'Cleaning products (non-hazardous)',
-      'Cardboard and paper in bulk',
+      'Clothing, textiles and soft furnishings',
+      'Cardboard and paper in large volumes',
     ],
   },
   {
@@ -39,8 +39,8 @@ const accepted = [
     items: [
       'Grass cuttings and turf',
       'Tree branches and logs',
-      'Hedge trimmings',
-      'Soil and compost',
+      'Hedge trimmings and shrubs',
+      'Soil and compost bags',
       'Leaves and plant matter',
     ],
   },
@@ -48,11 +48,11 @@ const accepted = [
     icon: Sofa,
     label: 'Furniture & Bulky Items',
     items: [
-      'Sofas and chairs',
+      'Sofas and armchairs',
       'Mattresses and beds',
-      'Wardrobes and drawers',
+      'Wardrobes, drawers and shelving',
       'White goods (fridges, washing machines)',
-      'Carpets and underlay',
+      'Carpets, rugs and underlay',
     ],
   },
   {
@@ -61,93 +61,90 @@ const accepted = [
     items: [
       'Timber and wood offcuts',
       'Plasterboard (general quantities)',
-      'Ceramic tiles',
-      'Rubble and brickwork',
+      'Ceramic and floor tiles',
+      'Rubble and broken brickwork',
       'Insulation materials',
     ],
   },
   {
     icon: MonitorSmartphone,
-    label: 'Electrical & Electronics (WEEE)',
+    label: 'Electrical & Electronics',
     items: [
       'Televisions and monitors',
       'Laptops, PCs and tablets',
       'Kitchen appliances',
-      'Power tools',
+      'Power tools and equipment',
       'Small electronics and cables',
     ],
   },
   {
     icon: Mountain,
-    label: 'Soil & Hardcore',
+    label: 'Soil, Rubble & Hardcore',
     items: [
       'Topsoil and subsoil',
       'Concrete and brick',
       'Stone and aggregate',
       'Sand and gravel',
-      'Mixed hardcore',
+      'Mixed hardcore from works',
     ],
   },
   {
-    icon: Flower2,
-    label: 'Metal & Scrap',
+    icon: Home,
+    label: 'Full House Clearances',
     items: [
-      'Scrap steel and iron',
-      'Aluminium',
-      'Copper and brass',
-      'Metal doors and frames',
-      'Garden tools and equipment',
+      'End-of-tenancy clearances',
+      'Bereavement property clearances',
+      'House moves and downsizes',
+      'Partial clearances (one room or type)',
+      'Rental void clearances for landlords',
     ],
   },
   {
-    icon: Package,
-    label: 'Packaging & Commercial Light',
+    icon: Building,
+    label: 'Garage, Loft & Outbuildings',
     items: [
-      'Cardboard in large volumes',
-      'Plastic packaging (sorted)',
-      'Polystyrene',
-      'Wooden pallets',
-      'Shrink wrap',
+      'Garage clearances — tools, boxes, old furniture',
+      'Loft clearances — full or partial',
+      'Garden shed contents',
+      'Storage unit contents',
+      'Mixed junk and accumulated items',
     ],
   },
 ];
 
-const notAccepted = [
-  'Hazardous liquids — oils, solvents, paints in bulk',
+const notCollected = [
+  'Hazardous chemicals — solvents, paints in bulk, oils',
   'Asbestos or asbestos-containing materials',
   'Clinical or medical waste',
   'Radioactive materials',
-  'Explosive or flammable substances',
-  'Trade/commercial quantities (see Job Logistics)',
+  'Explosives or highly flammable substances',
 ];
 
-export default function WhatWeAcceptPage() {
+export default function WhatWeCollectPage() {
   return (
     <>
-      {/* Page hero */}
       <section className="bg-brand-charcoal py-14">
         <div className="max-w-6xl mx-auto px-4">
           <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-3">
-            Blackpool Recycling Centre
+            Blackpool waste collection
           </p>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold leading-tight mb-4">
-            What waste do we accept?
+            What we collect from your property
           </h1>
           <p className="text-zinc-300 text-lg max-w-xl">
-            Most household, garden, bulky and DIY waste — weighed and receipted. No booking
-            required. Open Monday to Saturday, 9am–4pm.
+            We collect from inside your home, your garden, your garage or your loft. No need to
+            move anything beforehand — our team does all the loading.
           </p>
         </div>
       </section>
 
-      {/* Accepted waste grid */}
       <section className="bg-base py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-brand-charcoal text-2xl font-extrabold mb-8">
-            Accepted waste types
+            Items &amp; waste types we collect
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {accepted.map(({ icon: Icon, label, items }) => (
+            {collected.map(({ icon: Icon, label, items }) => (
               <div key={label} className="bg-white border border-border rounded-xl p-5">
                 <div className="w-10 h-10 rounded-lg bg-brand-orange flex items-center justify-center mb-3">
                   <Icon size={20} className="text-white" />
@@ -167,15 +164,14 @@ export default function WhatWeAcceptPage() {
         </div>
       </section>
 
-      {/* Not accepted */}
       <section className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-brand-charcoal text-2xl font-extrabold mb-6">
-            What we cannot accept
+            What we cannot collect
           </h2>
           <div className="bg-base border border-border rounded-xl p-6 max-w-2xl">
             <ul className="space-y-3">
-              {notAccepted.map(item => (
+              {notCollected.map(item => (
                 <li key={item} className="flex items-start gap-3 text-sm text-text-body">
                   <X size={16} className="text-red-500 shrink-0 mt-0.5" />
                   {item}
@@ -184,60 +180,50 @@ export default function WhatWeAcceptPage() {
             </ul>
           </div>
           <p className="mt-4 text-xs text-text-muted max-w-xl">
-            Not sure if we can take something? Give us a call on{' '}
-            <a href="tel:01253963109" className="text-brand-orange font-semibold">
-              01253 963109
-            </a>{' '}
-            and we&apos;ll advise before your trip.
+            Not sure? Call us on{' '}
+            <a href="tel:01253963109" className="text-brand-orange font-semibold">01253 963109</a>
+            {' '}before booking.
           </p>
         </div>
       </section>
 
-      {/* Trade callout */}
       <section className="bg-brand-charcoal py-10">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-6 justify-between">
-            <div>
-              <h2 className="text-white text-xl font-extrabold mb-2">
-                Builder, contractor or landlord?
-              </h2>
-              <p className="text-zinc-400 text-sm max-w-lg">
-                This recycling centre is designed for domestic and small-volume DIY waste. For trade
-                loads, skip hire, commercial clearances and large builder&apos;s volumes, visit our
-                partner site Job Logistics Ltd — they handle it all.
-              </p>
-            </div>
-            <a
-              href="https://www.joblogisticsltd.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm"
-            >
-              Job Logistics Trade Site <ExternalLink size={14} />
-            </a>
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-5 justify-between">
+          <div>
+            <h2 className="text-white text-xl font-extrabold mb-2">
+              Got a van and want to drop it off yourself?
+            </h2>
+            <p className="text-zinc-400 text-sm max-w-lg">
+              Our Job Logistics site accepts waste drop-offs — drive in, get weighed, pay on the day.
+            </p>
           </div>
+          <a
+            href="https://www.joblogisticsltd.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm"
+          >
+            Job Logistics Drop-Off <ExternalLink size={14} />
+          </a>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-base py-12 text-center">
-        <h2 className="text-brand-charcoal text-2xl font-extrabold mb-3">
-          Ready to drop off?
-        </h2>
-        <p className="text-text-muted mb-6">No booking needed. Just turn up Mon–Sat, 9am–4pm.</p>
+        <h2 className="text-brand-charcoal text-2xl font-extrabold mb-3">Ready to book?</h2>
+        <p className="text-text-muted mb-6">Same-day and next-day collection available.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/book"
             className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-7 py-3 rounded-lg transition-colors"
           >
-            Book a drop-off <ArrowRight size={16} />
+            Book a collection <ArrowRight size={16} />
           </Link>
-          <Link
-            href="/find-us"
+          <a
+            href="tel:01253963109"
             className="inline-flex items-center gap-2 border border-brand-charcoal/20 hover:border-brand-orange text-text-body font-semibold px-7 py-3 rounded-lg transition-colors text-sm"
           >
-            Find us &amp; get directions
-          </Link>
+            Call 01253 963109
+          </a>
         </div>
       </section>
     </>
