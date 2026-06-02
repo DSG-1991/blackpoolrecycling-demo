@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   CheckCircle, Star, Truck, Leaf, Sofa, Hammer,
-  MonitorSmartphone, Mountain, Phone, Clock, Calendar,
+  MonitorSmartphone, Mountain, Phone, Calendar,
   ShieldCheck, ThumbsUp, ArrowRight, X, MapPin,
 } from 'lucide-react';
 import AnimateIn from '@/app/components/AnimateIn';
@@ -74,103 +74,94 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ── HERO — mount animations, staggered */}
+      {/* ── HERO — H1 is the ONE animated element on this page */}
       <section className="bg-brand-charcoal relative overflow-hidden">
         <div className="absolute inset-0" style={{ opacity: 0.08, backgroundImage: 'repeating-linear-gradient(45deg, #F6A500 0, #F6A500 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px' }} />
         <div className="relative max-w-6xl mx-auto px-4 py-20 lg:py-28">
-          <AnimateIn type="slide-left" className="inline-block mb-5">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase">
-              Waste collection · Blackpool &amp; Fylde Coast
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={100} className="block">
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-5">
+            Waste collection · Blackpool &amp; Fylde Coast
+          </p>
+          {/* SNIPER TARGET 1: H1 fades up — the only scroll entrance on this page */}
+          <AnimateIn className="block">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.05] tracking-tight mb-5 max-w-3xl">
               Got a pile of waste you need gone — without the skip, the permit or the van?
             </h1>
           </AnimateIn>
-          <AnimateIn delay={250} className="block mb-8">
-            <p className="text-zinc-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
-              We come to your property, carry everything out ourselves, and take it away in one visit.
-              <strong className="text-brand-orange"> No van. No heavy lifting. No rubbish sat on your drive for two weeks.</strong>
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={400} className="flex flex-col sm:flex-row gap-3">
+          <p className="text-zinc-300 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
+            We come to your property, carry everything out ourselves, and take it away in one visit.
+            <strong className="text-brand-orange"> No van. No heavy lifting. No rubbish sat on your drive for two weeks.</strong>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            {/* SNIPER TARGET 2: primary CTA pulses gently */}
             <Link href="/book" className="pulse-cta inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-7 py-4 rounded-lg transition-colors duration-200 text-base">
               Book a collection <ArrowRight size={18} />
             </Link>
             <a href="tel:01253963109" className="inline-flex items-center justify-center gap-2 border border-white/25 hover:bg-white/10 text-white font-semibold px-7 py-4 rounded-lg transition-colors duration-200 text-base">
               <Phone size={16} /> Call 01253 963109
             </a>
-          </AnimateIn>
+          </div>
         </div>
       </section>
 
-      {/* ── TRUST BAR — scroll stagger */}
+      {/* ── TRUST BAR — CountUp on 381 is the only active element here */}
       <section className="bg-white border-b border-border">
         <div className="max-w-6xl mx-auto px-4 py-5">
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {/* SNIPER TARGET 3: 381 counts up when it enters the viewport */}
+            <div className="flex items-center gap-2 text-sm font-semibold text-text-body">
+              <Star size={16} className="text-brand-orange" />
+              <CountUp target={381} duration={1500} /> Google reviews
+            </div>
             {[
-              { icon: Star, label: null, countTarget: 381, countSuffix: ' Google reviews' },
               { icon: ShieldCheck, label: 'Licensed waste carrier' },
               { icon: Calendar, label: 'Same-day & next-day available' },
               { icon: ThumbsUp, label: '100% recommend on Facebook' },
               { icon: CheckCircle, label: 'All waste responsibly recycled' },
-            ].map(({ icon: Icon, label, countTarget, countSuffix }, i) => (
-              <AnimateIn key={label ?? 'reviews'} delay={i * 80} className="flex items-center gap-2 text-sm font-semibold text-text-body">
+            ].map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-sm font-semibold text-text-body">
                 <Icon size={16} className="text-brand-orange" />
-                {countTarget
-                  ? <><CountUp target={countTarget} duration={1500} />{countSuffix}</>
-                  : label}
-              </AnimateIn>
+                {label}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── INTENT ROUTING — stagger cards */}
+      {/* ── INTENT ROUTING — static, card-lift on hover only */}
       <section className="bg-base py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-2">What needs clearing?</h2>
-            <p className="text-text-muted">Point us to it — inside the house, in the garden, up in the loft. We handle the rest.</p>
-          </AnimateIn>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-2 text-center">What needs clearing?</h2>
+          <p className="text-text-muted text-center mb-10">Point us to it — inside the house, in the garden, up in the loft. We handle the rest.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {intentCards.map((card, i) => (
-              <AnimateIn key={card.label} delay={i * 100}>
-                <Link href="/what-we-collect"
-                  className={`group block bg-white border border-border rounded-xl card-lift hover:border-brand-orange ${card.featured ? 'p-6' : 'p-5'}`}>
-                  <div className={`rounded-full bg-brand-orange/10 flex items-center justify-center mb-3 group-hover:bg-brand-orange/20 transition-colors duration-200 ${card.featured ? 'w-10 h-10' : 'w-8 h-8'}`}>
-                    <CheckCircle size={card.featured ? 18 : 15} className="text-brand-orange" />
-                  </div>
-                  <p className={`font-bold text-text-primary mb-1 ${card.featured ? 'text-base' : 'text-sm'}`}>{card.label}</p>
-                  <p className="text-text-muted text-xs leading-relaxed">{card.sub}</p>
-                </Link>
-              </AnimateIn>
+            {intentCards.map((card) => (
+              <Link key={card.label} href="/what-we-collect"
+                className={`group bg-white border border-border rounded-xl card-lift hover:border-brand-orange ${card.featured ? 'p-6' : 'p-5'}`}>
+                <div className={`rounded-full bg-brand-orange/10 flex items-center justify-center mb-3 group-hover:bg-brand-orange/20 transition-colors duration-200 ${card.featured ? 'w-10 h-10' : 'w-8 h-8'}`}>
+                  <CheckCircle size={card.featured ? 18 : 15} className="text-brand-orange" />
+                </div>
+                <p className={`font-bold text-text-primary mb-1 ${card.featured ? 'text-base' : 'text-sm'}`}>{card.label}</p>
+                <p className="text-text-muted text-xs leading-relaxed">{card.sub}</p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── WHAT WE COLLECT — broken bento grid */}
+      {/* ── WHAT WE COLLECT — bento grid, static, hover lift */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2">What we collect</p>
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3">Almost anything — from almost anywhere on your property</h2>
-            <p className="text-text-muted max-w-xl mx-auto">Our team handles the carrying, the loading and the disposal. You just show us what needs to go.</p>
-          </AnimateIn>
-          {/* Bento: first card spans 2 cols, breaks uniform grid */}
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">What we collect</p>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">Almost anything — from almost anywhere on your property</h2>
+          <p className="text-text-muted text-center mb-10 max-w-xl mx-auto">Our team handles the carrying, the loading and the disposal. You just show us what needs to go.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            {collectTypes.map(({ icon: Icon, label, desc, featured }, i) => (
-              <AnimateIn key={label} delay={i * 80} className={featured ? 'lg:col-span-2' : 'lg:col-span-1'}>
-                <div className="h-full bg-base rounded-xl p-5 border border-border card-lift hover:border-brand-orange/40">
-                  <div className={`rounded-lg bg-brand-orange flex items-center justify-center mb-3 ${featured ? 'w-12 h-12' : 'w-10 h-10'}`}>
-                    <Icon size={featured ? 24 : 20} className="text-white" />
-                  </div>
-                  <h3 className={`font-bold text-text-primary mb-1 ${featured ? 'text-lg' : 'text-base'}`}>{label}</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">{desc}</p>
+            {collectTypes.map(({ icon: Icon, label, desc, featured }) => (
+              <div key={label} className={`h-full bg-base rounded-xl p-5 border border-border card-lift hover:border-brand-orange/40 ${featured ? 'lg:col-span-2' : 'lg:col-span-1'}`}>
+                <div className={`rounded-lg bg-brand-orange flex items-center justify-center mb-3 ${featured ? 'w-12 h-12' : 'w-10 h-10'}`}>
+                  <Icon size={featured ? 24 : 20} className="text-white" />
                 </div>
-              </AnimateIn>
+                <h3 className={`font-bold text-text-primary mb-1 ${featured ? 'text-lg' : 'text-base'}`}>{label}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{desc}</p>
+              </div>
             ))}
           </div>
           <div className="mt-8 text-center">
@@ -181,111 +172,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS — stagger steps */}
+      {/* ── HOW IT WORKS — static */}
       <section className="bg-surface-warm py-16 border-l-4 border-brand-orange/20">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-12">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2">How it works</p>
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3">Three steps. You do nothing after the call.</h2>
-            <p className="text-text-muted max-w-lg mx-auto">Most jobs booked, collected and cleared within 24 hours. Same-day available.</p>
-          </AnimateIn>
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">How it works</p>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">Three steps. You do nothing after the call.</h2>
+          <p className="text-text-muted text-center mb-12 max-w-lg mx-auto">Most jobs booked, collected and cleared within 24 hours. Same-day available.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { step: '01', title: 'Book or call', desc: 'Tell us what you need collected and where. We give you a firm price and a time slot — same day or next day for most jobs.' },
               { step: '02', title: 'We arrive & load', desc: 'Our team turns up on time, collects from wherever the waste is — inside, outside, garage, loft — and loads it all into our vehicle.' },
               { step: '03', title: 'Waste gone, job done', desc: 'We take everything away and dispose of it responsibly. You pay on completion — card or cash. No paperwork, no permit, no skip sat on your drive.' },
-            ].map(({ step, title, desc }, i) => (
-              <AnimateIn key={step} delay={i * 120}>
+            ].map(({ step, title, desc }) => (
+              <div key={step}>
                 <div className="text-[4rem] font-extrabold leading-none mb-2 select-none" style={{ color: 'rgba(246,165,0,0.25)' }}>{step}</div>
                 <h3 className="font-extrabold text-xl text-brand-charcoal mb-2">{title}</h3>
                 <p className="text-text-body text-sm leading-relaxed">{desc}</p>
-              </AnimateIn>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── VS SKIP HIRE — charcoal contrast section */}
+      {/* ── VS SKIP HIRE — static */}
       <section className="bg-brand-charcoal py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2">Why not a skip?</p>
-            <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3">A skip still makes you do the work. We don&apos;t.</h2>
-            <p className="text-zinc-400 max-w-xl mx-auto">You pay for a skip, fill it yourself, wait days for collection, and hope the council doesn&apos;t fine you for the permit. Or call us and it&apos;s gone by tomorrow.</p>
-          </AnimateIn>
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">Why not a skip?</p>
+          <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3 text-center">A skip still makes you do the work. We don&apos;t.</h2>
+          <p className="text-zinc-400 text-center mb-10 max-w-xl mx-auto">You pay for a skip, fill it yourself, wait days for collection, and hope the council doesn&apos;t fine you for the permit. Or call us and it&apos;s gone by tomorrow.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            <AnimateIn>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <p className="text-zinc-400 font-bold text-sm mb-4 uppercase tracking-wide">Skip hire — the problems</p>
-                <ul className="space-y-2">
-                  {skipProblems.map(item => (
-                    <li key={item} className="flex items-center gap-2 text-zinc-400 text-sm"><X size={14} className="text-red-400 shrink-0" />{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={150}>
-              <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-xl p-6">
-                <p className="text-brand-orange font-bold text-sm mb-4 uppercase tracking-wide">Job Logistics collection — the difference</p>
-                <ul className="space-y-2">
-                  {ourAdvantages.map(item => (
-                    <li key={item} className="flex items-center gap-2 text-white text-sm"><CheckCircle size={14} className="text-brand-orange shrink-0" />{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </AnimateIn>
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+              <p className="text-zinc-400 font-bold text-sm mb-4 uppercase tracking-wide">Skip hire — the problems</p>
+              <ul className="space-y-2">
+                {skipProblems.map(item => (
+                  <li key={item} className="flex items-center gap-2 text-zinc-400 text-sm"><X size={14} className="text-red-400 shrink-0" />{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-xl p-6">
+              <p className="text-brand-orange font-bold text-sm mb-4 uppercase tracking-wide">Job Logistics collection — the difference</p>
+              <ul className="space-y-2">
+                {ourAdvantages.map(item => (
+                  <li key={item} className="flex items-center gap-2 text-white text-sm"><CheckCircle size={14} className="text-brand-orange shrink-0" />{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── REVIEWS — stagger */}
+      {/* ── REVIEWS — static, card-lift hover */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2">Google reviews</p>
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-2">What Blackpool says about us</h2>
-            <p className="text-text-muted">381 reviews · 100% recommend on Facebook</p>
-          </AnimateIn>
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">Google reviews</p>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-2 text-center">What Blackpool says about us</h2>
+          <p className="text-text-muted text-center mb-10">381 reviews · 100% recommend on Facebook</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {reviews.map((r, i) => (
-              <AnimateIn key={r.name} delay={i * 150}>
-                <div className="h-full bg-base border border-border rounded-xl p-5 card-lift">
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, j) => <Star key={j} size={14} className="text-brand-orange fill-brand-orange" />)}
-                  </div>
-                  <p className="text-text-body text-sm leading-relaxed mb-4 italic">&ldquo;{r.text}&rdquo;</p>
-                  <div className="flex items-center justify-between text-xs text-text-muted">
-                    <span className="font-semibold text-text-primary">{r.name}, {r.location}</span>
-                    <span>{r.date}</span>
-                  </div>
+            {reviews.map((r) => (
+              <div key={r.name} className="h-full bg-base border border-border rounded-xl p-5 card-lift">
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-brand-orange fill-brand-orange" />)}
                 </div>
-              </AnimateIn>
+                <p className="text-text-body text-sm leading-relaxed mb-4 italic">&ldquo;{r.text}&rdquo;</p>
+                <div className="flex items-center justify-between text-xs text-text-muted">
+                  <span className="font-semibold text-text-primary">{r.name}, {r.location}</span>
+                  <span>{r.date}</span>
+                </div>
+              </div>
             ))}
           </div>
           <p className="text-center mt-6 text-xs text-text-muted">Reviews sourced from Google. Original source of each review is Google.</p>
         </div>
       </section>
 
-      {/* ── PRICING — table fades as unit */}
+      {/* ── PRICING — static */}
       <section className="bg-base py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2">Pricing</p>
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3">Priced by load — agreed before we start</h2>
-            <p className="text-text-muted max-w-lg mx-auto">No hidden charges. No paying for space you don&apos;t use. We quote before we begin and stick to it.</p>
-          </AnimateIn>
-          <AnimateIn className="max-w-xl mx-auto bg-white border border-border rounded-xl overflow-hidden">
+          <p className="text-brand-orange text-xs font-bold tracking-[0.15em] uppercase mb-2 text-center">Pricing</p>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-3 text-center">Priced by load — agreed before we start</h2>
+          <p className="text-text-muted text-center mb-10 max-w-lg mx-auto">No hidden charges. No paying for space you don&apos;t use. We quote before we begin and stick to it.</p>
+          <div className="max-w-xl mx-auto bg-white border border-border rounded-xl overflow-hidden">
             <div className="bg-brand-charcoal px-5 py-3">
               <p className="text-white font-bold text-sm">Guide prices — collection from your property</p>
             </div>
             <table className="w-full text-sm">
               <tbody>
-                {[
-                  ['Small load', 'Car boot equivalent', '£72'],
-                  ['Medium load', 'Half-van equivalent', '£145'],
-                  ['Large load', 'Full-van equivalent', '£220'],
-                  ['Full clearance', 'Maximum load', '£325'],
-                ].map(([size, desc, price], i) => (
+                {[['Small load','Car boot equivalent','£72'],['Medium load','Half-van equivalent','£145'],['Large load','Full-van equivalent','£220'],['Full clearance','Maximum load','£325']].map(([size, desc, price], i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-base'}>
                     <td className="px-5 py-3 font-semibold text-text-primary">{size}</td>
                     <td className="px-3 py-3 text-text-muted">{desc}</td>
@@ -299,64 +271,52 @@ export default function HomePage() {
                 Full pricing details <ArrowRight size={14} />
               </Link>
             </div>
-          </AnimateIn>
+          </div>
           <p className="text-center mt-4 text-xs text-text-muted">* Guide prices. Final quote given before work begins.</p>
         </div>
       </section>
 
-      {/* ── FAQ — animated accordion */}
+      {/* ── FAQ — SNIPER TARGET 4: accordion animation only */}
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4">
-          <AnimateIn className="text-center mb-10">
-            <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold">Common questions</h2>
-          </AnimateIn>
-          <AnimateIn delay={100}>
-            <Accordion items={faqs} />
-          </AnimateIn>
+          <h2 className="text-brand-charcoal text-2xl sm:text-3xl font-extrabold mb-10 text-center">Common questions</h2>
+          <Accordion items={faqs} />
         </div>
       </section>
 
-      {/* ── DROP-OFF CROSS-LINK */}
+      {/* ── DROP-OFF CROSS-LINK — static */}
       <section className="bg-base py-10">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimateIn>
-            <div className="bg-white border border-border rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 justify-between card-lift">
-              <div className="flex items-start gap-3">
-                <MapPin size={20} className="text-brand-orange shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-text-primary mb-1">Prefer to drop your waste off yourself?</h3>
-                  <p className="text-text-body text-sm">Our recycling centre at Job Logistics accepts household and commercial waste drop-offs — drive in, get weighed, pay and go.</p>
-                </div>
+          <div className="bg-white border border-border rounded-xl p-6 flex flex-col md:flex-row items-center gap-5 justify-between card-lift">
+            <div className="flex items-start gap-3">
+              <MapPin size={20} className="text-brand-orange shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-bold text-text-primary mb-1">Prefer to drop your waste off yourself?</h3>
+                <p className="text-text-body text-sm">Our recycling centre at Job Logistics accepts household and commercial waste drop-offs — drive in, get weighed, pay and go.</p>
               </div>
-              <a href="https://www.joblogisticsltd.co.uk" target="_blank" rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 bg-brand-charcoal hover:bg-black text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 text-sm">
-                Job Logistics Drop-Off Site →
-              </a>
             </div>
-          </AnimateIn>
+            <a href="https://www.joblogisticsltd.co.uk" target="_blank" rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-2 bg-brand-charcoal hover:bg-black text-white font-bold px-6 py-3 rounded-lg transition-colors duration-200 text-sm">
+              Job Logistics Drop-Off Site →
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ── FINAL CTA */}
+      {/* ── FINAL CTA — static */}
       <section className="bg-brand-charcoal py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <AnimateIn>
-            <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3">Every day you wait, the pile doesn&apos;t shrink itself.</h2>
-          </AnimateIn>
-          <AnimateIn delay={100}>
-            <p className="text-zinc-400 mb-8 max-w-md mx-auto">One call and it&apos;s sorted. Same-day and next-day collection across Blackpool and the Fylde Coast — no van, no permit, no heavy lifting.</p>
-          </AnimateIn>
-          <AnimateIn delay={200} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <h2 className="text-white text-2xl sm:text-3xl font-extrabold mb-3">Every day you wait, the pile doesn&apos;t shrink itself.</h2>
+          <p className="text-zinc-400 mb-8 max-w-md mx-auto">One call and it&apos;s sorted. Same-day and next-day collection across Blackpool and the Fylde Coast.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/book" className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 text-base">
               Book a collection <ArrowRight size={18} />
             </Link>
             <a href="tel:01253963109" className="inline-flex items-center gap-2 border border-white/25 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 text-base">
               <Phone size={16} /> 01253 963109
             </a>
-          </AnimateIn>
-          <AnimateIn delay={300}>
-            <p className="mt-6 text-xs text-zinc-500">Covering Blackpool · Lytham St Annes · Bispham · Fleetwood · Thornton · Poulton</p>
-          </AnimateIn>
+          </div>
+          <p className="mt-6 text-xs text-zinc-500">Covering Blackpool · Lytham St Annes · Bispham · Fleetwood · Thornton · Poulton</p>
         </div>
       </section>
     </>

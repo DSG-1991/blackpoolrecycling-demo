@@ -23,7 +23,7 @@
   --color-border: #E5E5E5;
 
   /* Fonts */
-  --font-barlow: var(--font-barlow);
+  --font-nunito: var(--font-nunito);
 }
 
 :root {
@@ -35,7 +35,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-nunito), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
