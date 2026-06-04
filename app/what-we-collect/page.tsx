@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'What We Collect | Rubbish Removal Blackpool | Job Logistics',
+  title: 'What We Collect | Rubbish Removal Blackpool | Job Logistics Ltd',
   description:
     'Full list of waste we collect from Blackpool properties — household, garden, furniture, appliances, DIY waste and full clearances. We do all the loading.',
 };

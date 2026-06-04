@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, ExternalLink, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Waste Collection Prices Blackpool | Job Logistics',
+  title: 'Waste Collection Prices Blackpool | Job Logistics Ltd',
   description:
     'Rubbish removal prices in Blackpool. Priced by load size — agreed before we start. No hidden fees. Call 01253 963109 for a free quote.',
 };

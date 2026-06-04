@@ -15,13 +15,13 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL('https://blackpoolrecycling.uk'),
   title: {
-    default: 'Rubbish Collection Blackpool | We Come to You | Job Logistics',
-    template: '%s | Job Logistics Blackpool',
+    default: 'Rubbish Collection Blackpool | We Come to You | Job Logistics Ltd',
+    template: '%s | Job Logistics Ltd',
   },
   description:
     'Rubbish removal and waste collection in Blackpool and the Fylde Coast. We come to your property, load everything and take it away. Call 01253 963109.',
   openGraph: {
-    siteName: 'Job Logistics Recycling Centre',
+    siteName: 'Job Logistics Ltd',
     locale: 'en_GB',
     type: 'website',
   },
@@ -50,7 +50,7 @@ export default function RootLayout({
             {/* NAP */}
             <div>
               <h3 className="text-brand-orange font-bold text-lg mb-4">
-                Job Logistics Recycling Centre
+                Job Logistics Ltd
               </h3>
               <address className="not-italic space-y-3 text-sm text-zinc-300">
                 <div className="flex items-start gap-2">

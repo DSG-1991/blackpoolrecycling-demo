@@ -10,7 +10,7 @@ import CountUp from '@/app/components/CountUp';
 import Accordion from '@/app/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Rubbish Collection Blackpool | We Come to You | Job Logistics',
+  title: 'Rubbish Collection Blackpool | We Come to You | Job Logistics Ltd',
   description: 'Rubbish removal and waste collection in Blackpool. We come to your property, load everything and take it away. No van needed. Call 01253 963109.',
 };
 
@@ -57,7 +57,7 @@ const ourAdvantages = [
 
 const localBusinessSchema = {
   '@context': 'https://schema.org', '@type': 'LocalBusiness',
-  name: 'Job Logistics Waste Collection', url: 'https://blackpoolrecycling.uk',
+  name: 'Job Logistics Ltd', url: 'https://blackpoolrecycling.uk',
   telephone: '+441253963109',
   address: { '@type': 'PostalAddress', addressLocality: 'Blackpool', addressRegion: 'Lancashire', addressCountry: 'GB' },
   areaServed: { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 53.8142, longitude: -3.0503 }, geoRadius: '15000' },
